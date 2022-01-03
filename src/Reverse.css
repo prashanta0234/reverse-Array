@@ -1,0 +1,15 @@
+.date {
+  color: rgb(212, 22, 22);
+}
+.recent {
+  margin-top: 1rem;
+}
+.Date_see {
+  display: flex;
+  justify-content: space-between;
+}
+.Date_see button {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
