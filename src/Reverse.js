@@ -30,25 +30,31 @@ const Reverse = () => {
   };
 
   useEffect(() => {
-    fetch("fakePost.json")
+    fetch("https://calm-eyrie-50135.herokuapp.com/blog")
       .then((res) => res.json())
       .then((data) => setPost(data.reverse()));
   }, []);
   console.log(posts);
+  const recent = posts.slice(0, 6);
   return (
     <div className="recent">
       <Container>
         <Row xs={1} md={3} className="g-4">
-          {posts.map((post) => (
+          {recent.map((post) => (
             <Col>
-              <Card>
-                <Card.Img variant="top" src={post?.img} width="100%" />
+              <Card className="card">
+                <Card.Img
+                  variant="top"
+                  src={`data:image/png;base64,${post.image}`}
+                  width="100%"
+                  height="250px"
+                />
                 <Card.Body>
-                  <Card.Title>{post?.title}</Card.Title>
+                  <Card.Title>{post?.title.slice(0, 40)}</Card.Title>
                   <Card.Text>
                     <div className="details">
                       {" "}
-                      {post?.details.slice(0, 100)}...
+                      {post?.description.slice(0, 100)}...
                     </div>{" "}
                     <br />
                     <div className="Date_see">
